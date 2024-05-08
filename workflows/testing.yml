@@ -1,0 +1,41 @@
+# name: All Tests
+
+# on: [pull_request]
+
+# jobs:
+#   tests:
+#     runs-on: windows-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [16.x, 18.x]
+
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js matrix. node-version ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - name: npm install
+#         run: npm ci
+#       - name: tests
+#         run: npm test
+
+name: All Tests
+
+on: [push]
+
+jobs:
+  tests:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
