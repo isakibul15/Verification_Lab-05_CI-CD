@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Calculator</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/calculator.png"
+      type="image/svg+xml"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+          <div class="card">
+            <h5 class="card-header text-center">Basic Calculator</h5>
+            <div class="card-body">
+              <input
+                type="number"
+                id="num1"
+                class="form-control mb-3"
+                placeholder="Enter first number"
+              />
+              <input
+                type="number"
+                id="num2"
+                class="form-control mb-3"
+                placeholder="Enter second number"
+              />
+              <button
+                onclick="addNumbers()"
+                class="btn btn-primary btn-block mb-2"
+              >
+                Add
+              </button>
+              <button
+                onclick="subtractNumbers()"
+                class="btn btn-primary btn-block mb-2"
+              >
+                Subtract
+              </button>
+              <button
+                onclick="multiplyNumbers()"
+                class="btn btn-primary btn-block mb-2"
+              >
+                Multiply
+              </button>
+              <button
+                onclick="divideNumbers()"
+                class="btn btn-primary btn-block mb-2"
+              >
+                Divide
+              </button>
+              <button onclick="power()" class="btn btn-primary btn-block mb-2">
+                Power
+              </button>
+              <button
+                onclick="modulus()"
+                class="btn btn-primary btn-block mb-2"
+              >
+                Modulus
+              </button>
+              <p id="result" class="text-center"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/basicOperation.js"></script>
+    <script src="./src/advancedOperation.js"></script>
+    <script>
+      function addNumbers() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML =
+          "Result: " + add(num1, num2);
+      }
+
+      function subtractNumbers() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML =
+          "Result: " + subtract(num1, num2);
+      }
+
+      function multiplyNumbers() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML =
+          "Result: " + multiply(num1, num2);
+      }
+
+      function divideNumbers() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        if (num2 === 0) {
+          document.getElementById("result").innerHTML =
+            "Error: Division by zero";
+        } else {
+          document.getElementById("result").innerHTML =
+            "Result: " + divide(num1, num2);
+        }
+      }
+      function power() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML =
+          "Result: " + pow(num1, num2);
+      }
+
+      function modulus() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML =
+          "Result: " + modulo(num1, num2);
+      }
+    </script>
+  </body>
+</html>
